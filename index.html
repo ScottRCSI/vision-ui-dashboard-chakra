@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datalyzer 5000 Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css"/>
+  https://cdn.jsdelivr.net/npm/chart.js
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Datalyzer 5000</h1>
+      <p>Strategic Insights & Performance Dashboard</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Insight Feed</h2>
+        <ul>
+          <li>📌 Q2 engagement up 18% driven by MPS campaign.</li>
+          <li>📌 Macro Helix content outperforming on LinkedIn.</li>
+          <li>📌 Review SEO performance for Supplylogix blog series.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Brand & Content Metrics</h2>
+        <canvas id="barChart"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Strategic Signals</h2>
+        <ul>
+          <li>⚠️ Declining open rates in email campaigns (↓12%).</li>
+          <li>📈 Video content has 2x engagement vs. static posts.</li>
+          <li>💡 SLX content drives highest conversion rate (4.2%).</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Content Type Distribution</h2>
+        <canvas id="pieChart"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Monthly Performance Trend</h2>
+        <canvas id="lineChart"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Quick Access</h2>
+        <ul>
+          <li><a href="#">📄 CSI White Paper</a></li>
+          <li><a href="#">📊 Campaign Tracker</a></li>
+          <li><a href="#">🧭 Walking Deck</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 Datalyzer 5000 | CSI Strategic Insights</p>
+    </footer>
+  </div>
+
+  <script>
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Email', 'Social', 'Web', 'Video', 'SEO'],
+        datasets: [{
+          label: 'Engagements',
+          data: [120, 90, 150, 200, 80],
+          backgroundColor: '#4e79a7'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Blog', 'Video', 'Infographic', 'Webinar'],
+        datasets: [{
+          data: [30, 25, 20, 25],
+          backgroundColor: ['#f28e2b', '#e15759', '#76b7b2', '#59a14f']
+        }]
+      },
+      options: { responsive: true }
+    });
+
+    new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          label: 'Performance Score',
+          data: [65, 72, 78, 85, 90],
+          fill: false,
+          borderColor: '#edc948',
+          tension: 0.1
+        }]
+      },
+      options: { responsive: true }
+    });
+  </script>
+</body>
+</html>
